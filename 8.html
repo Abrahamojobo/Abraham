@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/de9b151752.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .vertical-nav-icons {
+            width: 60px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .vertical-nav-icons nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .vertical-nav-icons nav ul li {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .vertical-nav-icons nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .vertical-nav-names {
+            width: 150px;
+            background-color: #fefefe;
+            color: rgb(6, 6, 6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .vertical-nav-names nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .vertical-nav-names nav ul li {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .vertical-nav-names nav ul li a {
+            color: #4d4c4c;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #cccccc13;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .search-bar input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .dynamic{
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            font-size: 15px;
+        }
+        .dynamic a{
+            color: white;
+            background-color: orange;
+            padding: 5px 10px;
+            text-decoration: none;
+        }
+        .dynamic a:hover{
+            background-color: rgb(245, 208, 140);
+        }
+        .create-content {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 50px;
+        }
+
+        .create-content h1 {
+            margin-bottom: 7px;
+        }
+
+        section {
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-left: 1px solid rgba(0, 0, 0, 0.623);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.623);
+            margin: 50px;
+            padding: 40px;
+            border-radius: 9px;
+            background-color: #fff;
+            width: calc(100% - 20px);
+            max-width: 920px;
+        }
+
+        section h3 {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: 100;
+            font-family: Arial Narrow, Arial, sans-serif;
+        }
+
+        .text {
+            font-weight: 50;
+            font-size: 15px;
+        }
+        #requests{
+            color: orange;
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 29px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            padding-left: 30px;
+        }
+        label{
+            color: rgb(85, 84, 84);
+        }
+        .fa-bell:hover{
+            background-color: rgba(0, 255, 255, 0.316);
+        }
+        .mypolicy {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .mypolicy > div {
+            flex: 1;
+            min-width: 300px;
+        }
+        #drop{
+            position: absolute;
+            margin-top: 10px;
+            margin-left: -380px;
+            border: none;
+        }
+        #back{
+            text-decoration: none;
+            color: gray;
+        }
+        
+        hr {
+            margin-bottom: 9px;
+            width: 100%;
+            background-color: #0b0b0b;
+        }
+          #myClaim{
+            margin-top: 10px;
+            padding-left: 60px;
+            margin-right:90px ;
+        }
+        #mydate{
+            position: absolute;
+            bottom:12px;
+            margin-top: 375px;
+        }
+        .create-two{
+            position: relative;
+            right: 60px;
+        }
+        .header{display: flex;
+        justify-content: right;
+        }
+        .fa-search{
+            position: relative;
+            top:30px;
+            padding-left: 10px;
+        }
+            .vertical-nav-icons , .vertical-nav-names
+            {
+                height: 850px;
+            }
+            
+            @media screen and (min-width:320px) and (max-width: 475px){
+                .vertical-nav-names{
+                    height: 1200px;
+                }
+                .create-two{
+                    margin-left:50px ;
+                }
+                .create-one h1{
+                    font-size: 17px;
+                }
+                input{
+                    width: 250px;
+                }
+                #drop{
+                    position: absolute;
+                    margin-top: 10px;
+                    margin-left: -240px;
+                    border: none;
+                }
+                
+            }        
+        @media screen and (max-width: 428px) {
+        #image{
+            position: relative;
+            top: 5px;
+            width: 100px;
+        }
+        .vertical-nav-icons{
+            position: relative;
+            top: 50px;
+            justify-content: flex-end;
+        }
+        .vertical-nav-names{
+            justify-content: flex-end;
+        }}
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .vertical-nav-icons,
+            .vertical-nav-names {
+                flex-direction: row;
+                width: 100%;
+                height: auto;
+            }
+            .vertical-nav-names
+            {
+                display: block;
+                
+            }
+            /* .vertical-nav-names ul */
+
+            
+            /* .vertical-nav-names nav ul  */
+            .vertical-nav-icons nav ul{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .vertical-nav-icons nav ul li,
+            .vertical-nav-names nav ul li {
+                margin: 10px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .create-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            section {
+                width: calc(100% - 40px);
+                margin: 20px;
+            }
+
+            .mypolicy {
+                flex-direction: column;
+            }
+
+            .mypolicy > div {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:884px) {
+            .vertical-nav-icons,
+            .vertical-nav-names{
+                height: 1500px;
+            }
+            #firsticon{
+                margin-top:-138px;
+            }
+            #mydate{
+                margin-top: 465px;       
+            }
+            #myclaim{
+                padding-right: 20px;
+            } 
+        
+            }
+        @media screen and (min-width:941px)and (max-width:1105px) {
+            #drop{
+                position: relative;
+                left: 10px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="vertical-nav-icons">
+            <nav>                                       
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-bars" style="color: #f68709;"></i></a></li>
+                    <li><a href="#"><i class="fa-regular fa-calendar-days" style="color: #f68709;"></i></a></li>
+                    <li style="background-color: white;"><a href="#"><i class="fa-solid fa-money-bill-1" style="color: #f68709;"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear" style="color: #f68709;"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-bomb" style="color: #f68709;"></i></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <aside class="vertical-nav-names" style="border: 1px solid rgba(0, 0, 0, 0.494);">
+            <nav>
+                <img src="/logo-removebg-preview.png" width="130px" id="image">
+                <a href="#" style="padding-left: 35px; text-decoration: none; color: #333; font-weight: 600;">TRM</a>
+                <ul>
+                    <li><a href="dashboard.html"><i class="fa-solid fa-chart-column" style="color: #0b0b0b;"></i>&nbsp; Overview</a></li>
+                    <li><i class="fa-solid fa-file-lines" style="color: #ff9500;"></i><a href="11.html" style="color: orange;">Requests</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content"> 
+            <header class="header">
+                <div class="search-bar">
+                    <a href="#"><i class="fa-solid fa-bell" style="color:black;"></i></a>
+                    <span class="AM" style="background-color: #0b0b0b;color:  orange;border-radius: 26px;">AM</span>
+                    <select name="user" id="user" style="border: none;">
+                        <option>Adesola</option>
+                        <option>UYO</option>
+                    </select> 
+                    <div class="dynamic">
+                        <a href="fouth.html"><div class="dyna1">Prev</div></a>
+                        <a href="14.html"><div class="dyna2">Next</div></a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="create-content">
+                <div class="create-one">
+                    <h1>Create New Inspection</h1>
+                    <p>see inspections across all business classes</p>
+                </div>
+                <div class="create-two"><i class="fa-solid fa-arrow-left"></i><a href="fouth.html" id="back"> Back to create request</a></div>
+            </div>
+
+            <section>
+                <h3>Post-Loss Link Generation <span class="text">(optional)</span></h3>
+                <hr>
+                <form action="">
+                    <div>
+                        <div class="mypolicy">
+                            <div>
+                                <i class="fa-solid fa-search" id="firsticon"></i>
+                                <label for="policyNO">Policy number (optional)</label><br>                                
+                                <input type="text" id="policyNO"  pattern="^[A-Z]{3}-\d{6}$"  placeholder="">
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-search" id="secicon" ></i>
+                                <label for="Claim">Insured for (optional)</label><br>
+                                <input type="text" id="Claim" pattern="^[A-Z]{3}-\d{6}$" placeholder="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="seven">
+                                <div>
+                                    <i class="fa-solid fa-search" id="secicon" ></i>
+                                    <label for="Claim">Assign to </label><br>
+                                    <input type="text" id="Claim" pattern="^[A-Z]{3}-\d{6}$" required title="Please enter a valid policy number in the format ABC-123456." placeholder="search a personnel">
+                                </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="mypolicy">
+                            <div>
+                                <label for="policyNO">contact first name</label><br>
+                                <input type="text" id="policyNO" pattern="^[A-Z]{3}-\d{6}$" required title="Please enter a valid policy number in the format ABC-123456." placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="Claim">contact last name</label><br>
+                                <input type="text" id="Claim" placeholder="Your name">
+                            </div>
+                        </div>
+                        <div class="mypolicy">
+                            
+                            <div>
+                                <label for="policyNO">contact phone number</label><br>
+                                <input type="tel" id="policyNO">
+                                <select id="drop">
+                                    <option>+123</option>
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="Claim">contact email address</label><br>
+                                <input type="text" id="Claim" pattern="^[A-Z]{3}-\d{6}$" required title="please enter a vaild email." placeholder="name">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="mypolicy">
+                            <div>
+                                <label for="policyNO">Risk House number (optional)</label><br>
+                                <input type="text" id="policyNO" pattern="^[A-Z]{3}-\d{6}$" required title="Please enter a valid policy number in the format ABC-123456." placeholder="Your name">
+                            </div>
+                            <div>
+                                <label for="Claim">Risk Address(optional)</label><br>
+                                <input type="text" id="Claim" pattern="^[A-Z]{3}-\d{6}$" required title="Please enter a valid policy number in the format ABC-123456." placeholder="Your name">
+                            </div>
+                        </div>
+                        <div class="mypolicy">
+                            <div>
+                            <label>State</label>
+                                <select name="" id="" style="width: 100%;border-radius: 5px; padding: 10px;">
+                                <option value="">Select a language</option></select>
+                            </div>
+                            
+                            <div>
+                            <label>LGA</label>
+                                <select name="" id="" style="width: 100%;border-radius: 5px; padding: 10px;">
+                                <option value="">Select a language</option></select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <button id="submitbtn" type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

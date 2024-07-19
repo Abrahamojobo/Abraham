@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Property Description</title>
+        <script src="https://kit.fontawesome.com/de9b151752.js" crossorigin="anonymous"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                text-decoration: none;
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+            }
+    
+            .container {
+                display: flex;
+                height: 100vh;
+            }
+    
+            .vertical-nav-icons {
+                width: 60px;
+                background-color: #333;
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+            }
+    
+            .vertical-nav-icons nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 120px;
+            }
+    
+            .vertical-nav-icons nav ul li {
+                text-align: center;
+                margin: 20px 0;
+                
+            }
+    
+            .vertical-nav-icons nav ul li a {
+                color: #f06a11;
+                text-decoration: none;
+                font-size: 24px;
+                margin: 10px;
+            }
+            #date{
+                background-color: white;
+                padding: 10px;
+            }
+    
+            .vertical-nav-names {
+                width: 150px;
+                background-color: #ffffff;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+    
+            .vertical-nav-names nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 150px;
+            }
+    
+            .vertical-nav-names nav ul li {
+                text-align: left;
+                margin: 20px 0;
+                padding-left: 20px;
+                
+            }
+    
+            .vertical-nav-names nav ul li a {
+                color: #4d4c4c;
+                text-decoration: none;
+                font-size: 16px;
+                margin: 10px;
+            }
+    
+            .main-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .header {
+                display: flex;
+                flex-direction: column;
+                justify-content:flex-end;
+                align-items: flex-end;
+                padding: 10px;
+                background-color: #f4f4f4;
+                border-bottom: 1px solid #ccc;
+            }
+    
+            .header .search-bar {
+                width: 200px;
+            }
+    
+            .header .search-bar input {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #e7e5e5;
+                border-radius: 4px;
+            }
+            .dynamic{
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            font-size: 15px;
+        }
+        .dynamic a{
+            color: white;
+            background-color: orange;
+            padding: 5px 10px;
+        }
+        .dynamic a:hover{
+            background-color: rgb(245, 208, 140);
+        }
+            .content {
+                padding: 20px;
+                flex: 1;
+                overflow-y: auto;
+                background-color: rgba(247, 243, 243, 0.5);
+            }
+            .content h1, .content p{
+                padding: 10px;
+            }
+            .responsive-table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid black;
+                border-radius: 10px;
+               
+            }
+    
+            .responsive-table th, .responsive-table td {
+                border: none;
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid rgba(99, 96, 96, 0.5);
+                border-radius: 5px;
+            }
+    
+            .responsive-table th {
+                background-color: white;
+            }
+            .progress_two{
+                float: right;
+                display: flex;
+                gap: 20px;
+                padding: 5px 10px;
+                
+            }
+            #marine{
+                color: black;
+                background-color: rgb(197, 196, 196);
+                height: 40px;
+                border-radius: 10px;
+            }
+            #sort{
+                height: 20px;
+            }
+            .progress_one{
+                margin-top: 10px;
+                background-color: rgb(197, 196, 196);
+                width: 20%;
+                height: 30px;
+                padding: 5px;
+                border-radius: 5px;
+                color: black;
+            }
+            .progress_one a{
+                color: black;
+                margin: 7px
+            }
+            .progress_one a:active{
+                background-color: white;
+                padding: 5px;
+            }
+            .progress_one #ongoing{
+                background-color: white;
+                padding: 4px;
+                border-radius: 5px;
+            }
+            #search{
+                width: 20%;
+                position: relative;
+                left: 80%;
+                padding: 10px;
+            }
+            #requests{
+                color: orange;
+            }
+            .highlight{
+               /* background-color: orangered;
+               opacity: 40%; */
+               box-shadow: 0 0 10px 5px rgba(250, 135, 4, 0.9);
+                margin: 20px;
+                color: orange;
+            }
+            #book{
+            color: orange;
+            background-color: orange;
+            margin-right: 10px;
+           }
+           #one{
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+            padding: 5px 5px;
+            }
+            #one a{
+            color: orange;
+            font-size: 10px;
+            }
+           .main{
+            margin: auto;
+            background-color: white;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid rgb(199, 197, 197);
+            border-radius: 10px;
+           }
+           h1{
+            color: rgb(66, 64, 64);
+           }
+          .inside{
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+           
+           }
+           .one, .two, .three{
+            position: relative;
+            left: 12%;
+            padding: 0px 10px;
+            margin: 0px 10px;
+            font-size: 12px;
+            color: rgb(66, 64, 64);
+           }
+          
+          #roven{
+            margin-left: 200px;
+            color: rgb(66, 64, 64);
+           }
+           #odd{
+            font-size: 12px;
+            color: rgb(66, 64, 64);
+           }
+           .second{
+            margin-bottom: 5px;
+            border: 1px solid  rgb(131, 128, 128);
+            padding: 10px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+           }
+           .second a{
+            color: rgb(66, 64, 64);
+            margin:10px 40px 10px 30px;
+            border-bottom: orange;
+           }
+           .others table{
+            margin:10px 30px;
+            height: 100px;
+            border-left: none;
+            border-right: none;
+            border-collapse: collapse;
+            width: 95%;
+            /* border: 1px solid rgb(131, 128, 128); */
+           }
+           .others table td{
+            border-bottom: 1px solid rgb(199, 197, 197);
+            padding: 10px;
+            font-size: 12px;
+            color: rgb(66, 64, 64);
+           }
+           .others table td:first-child{
+            text-align: left;
+           }
+           .others table td{
+            text-align: right;
+           }
+           .others{
+            height: 400px;
+            
+           }
+           .others table td  .fa-solid fa-eye{
+            color: orange;
+           }
+          
+           #supporting{
+            color: orange;
+            text-decoration: underline;
+            
+           }
+          
+           .repository{
+            width: 300px;
+            /* margin-left: 120px;
+            margin-top: 30px; */
+            color: white;
+            background-color: rgb(199, 197, 197);
+            border: none;
+            margin: auto;
+            margin-top: 30px;
+            padding:10px 70px;
+           }
+           
+           .details{
+            width: 100%;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid rgb(131, 128, 128);
+            border-radius: 10px;
+           }
+           .text{
+            color: orange;
+           }
+           .img{
+            width: 100%;
+           }
+           img{
+            width:80%;
+            position: relative;
+            left: 100px;
+            padding: 30px;
+            border: none;
+            border-left: 1px solid rgb(211, 208, 208);
+           }
+           .imag{
+            width: 100%;
+           }
+           .imag #imag{
+            width: 50%;
+           }
+           .others{
+            background-color: rgb(236, 233, 233);
+            margin: 20px;
+            border-radius: 10px;
+           }
+
+
+           @media (min-width:1024px){
+            /* .content{
+                width: 100%;
+                font-size: 10px;
+            }
+            .img{
+            width: 50%;
+           }
+           img{
+            width:50%;
+            position: relative;
+            left: 100px;
+            padding: 30px;
+            border: none;
+            border-left: 1px solid black;
+           }
+           .inside{
+            display: flex;
+            gap: 0;
+            margin-top: 0px;
+            margin-right: 20px;
+           
+           }
+           .inside .one, .inside .two, .inside .three{
+            font-size: 10px;
+           }
+           .img{
+            margin-right: 70px;
+            
+           } */
+           }
+
+
+           @media (min-width: 769px) and (max-width:1023px){
+            .content{
+                width: 100%;
+                font-size: 10px;
+            }
+            .img{
+            width: 50%;
+           }
+           img{
+            width:50%;
+            position: relative;
+            left: 80px;
+            padding: 30px;
+            border: none;
+            border-left: 1px solid black;
+           }
+           .inside{
+            display: flex;
+            gap: 0;
+            margin-top: 0px;
+            margin-right: 20px;
+           }
+           .inside .one, .inside .two, .inside .three{
+            font-size: 8px;
+            position: relative;
+           }
+           .inside .one{
+            position: relative;
+            right: 20px;
+           }
+           .img{
+            margin-right: 70px;
+            
+           }
+           .imag{
+            width: 90%;
+           }
+           #imag{
+            width:100%;
+            position: relative;
+            left: 100px;
+            padding: 30px;
+            border: none;
+            border-left: 1px solid black;
+           }
+
+           }
+
+            @media (max-width: 768px) {
+                .header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+    
+                .header .search-bar {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+    
+                .vertical-nav-icons, .vertical-nav-names {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                }
+    
+                .vertical-nav-icons nav ul, .vertical-nav-names nav ul {
+                    display: flex;
+                    justify-content: center;
+                }
+    
+                .vertical-nav-icons nav ul li, .vertical-nav-names nav ul li {
+                    margin: 0 10px;
+                }
+    
+                .container {
+                    flex-direction: column;
+                }
+                #supporting{
+                    position: relative;
+                    left: 0;
+                }
+                .main{
+                    width: 100%;
+                }
+                h1{
+                    font-size: 12px;
+                } 
+                p{
+                    font-size: 10px;
+                }
+                .main h1{
+                    text-align: center;
+                    font-size: 10px;
+                }
+                .inside{
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    gap: 1px;
+                    font-size: 10px;
+                    margin-top: 10px;
+                    }
+                    .inside .one, .inside .two, .inside .three{
+                        font-size: 10px;
+                        margin-left: 0px;
+                        margin-right: 0px;
+                        position: relative;
+                        left: 0;
+                    }
+                    .main h3{
+                        font-size: 12px;
+                        position: relative;
+                        right: 80px;
+                    }
+                    #odd{
+                        display: none;
+                    }
+                    
+                    .details .second{
+                        width: 100%;
+                        font-size: 10px;
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        position: relative;
+                        right: 25px;
+                        border-bottom: 1px solid gray;
+                    }
+                    .details .others{
+                        font-size: 10px;
+                    }
+                    .imag{
+            width: 100%;
+           }
+           .imag #imag{
+            width: 50%;
+           }
+                    }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <aside class="vertical-nav-icons">
+                <nav>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+                        <li id="date"><a href="#"><i class="fa-regular fa-calendar-days"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-money-bill-1"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-bomb"></i></a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <aside class="vertical-nav-names">
+                <nav>
+                    <ul>
+                        <li></i><a href="#">TRM</a></li>
+                        <li><i class="fa-solid fa-chart-simple"></i><a href="dashboard.html">Overview</a></li>
+                        <li><i class="fa-solid fa-file-lines" style="color: #ff9500;"></i><a href="11.html" id="requests">Requests</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <header class="header">
+                   
+                    <div class="search-bar">
+                        <a href="#" id="bell"><i class="fa-regular fa-bell"></i></a>
+                        <span id="one"><a href="#">AG</a></span>
+                        <select name="drop" id="drop"><i class="fa-solid fa-caret-down"></i>
+                            <option value="sort">Adesola</option>
+                            <option value="saab">Bidemi</option>
+                            <option value="saab">Peter</option>
+                        </select>
+                        <div class="dynamic">
+                            <a href="seven.two.html"><div class="dyna1">Prev</div></a>
+                            <a href="seventh.html"><div class="dyna2">Next</div></a>
+                        </div>
+                    </div>
+                </header>
+                <section class="content">
+                    <h1>Survey Report</h1>
+                    <p>See Inspection across all business classes</p>
+            
+                    <div class="main">
+                        <h3 id="roven">Rovenheights properties LTD</h3>
+                    <div class="inside">
+                       <div class="imag">
+                        <img src="/property.jpg" id="imag">
+                       </div>
+                        
+                        <div class="one">
+                        <p>Policy Number</p>
+                        <p>ALR12343215</p>
+                       
+                   
+
+                    
+                        <p>Expiry Date</p>
+                        <p>19th Dec 2024</p>
+                        </div>   
+
+                    <div class="two">
+                        <p>Loss Type</p>
+                        <p>Non-motor</p>
+                    
+
+                        <p>Commencement Date</p>
+                        <p>19th Dec 2019</p>
+                    </div>
+
+                    <div class="three">
+                        <p>Policy Term(Years)</p>
+                        <p>5</p>
+                    </div>
+                    
+                       <div class="img">
+                        <img src="/bar chart.jpg" width="100px">
+                       </div>
+                    </div>
+                    <p id="odd">property</p>
+                    
+                </div>
+                
+                <div class="Insured">
+                    <h1>Insured Details</h1>
+
+                    <div class="details">
+                        <header class="second">
+                            <a href="seven.two.html">Property Installation</a>
+                            <a href="seven.one.html" id="supporting">Property Description</a>
+                            <a href="seventh.html">Supporting Document</a>
+                        </header>
+                        <div class="others">
+                            <div class="others">
+                                <p id="para">Rovenheights homes, Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum at itaque doloremque sint cupiditate recusandae earum, facilis quas alias ex<br> architecto assumenda perferendis incidunt, sit rerum ipsum, blanditiis ea laudantium,  architecto assumenda perferendis incidunt, sit rerum ipsum, blanditiis ea laudantium <br> architecto assumenda perferendis incidunt, sit rerum ipsum, blanditiis ea laudantium,  architecto assumenda perferendis incidunt, sit rerum ipsum, blanditiis ea laudantium.</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+                    
+                </section>
+            </main>
+        </div>
+    </body>
+    </html>
+   
+</head>
+<body>
+    
+</body>
+</html>

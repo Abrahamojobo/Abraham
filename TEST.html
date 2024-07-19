@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table+2vnav bar</title>
+    <script src="https://kit.fontawesome.com/de9b151752.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .vertical-nav-icons {
+            width: 60px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .vertical-nav-icons nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 120px;
+        }
+
+        .vertical-nav-icons nav ul li {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .vertical-nav-icons nav ul li a {
+            color: #f06a11;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        
+        #date {
+            background-color: white;
+            padding: 10px;
+        }
+
+        .vertical-nav-names {
+            width: 200px;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .vertical-nav-names nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 70px;
+        }
+
+        .vertical-nav-names nav img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 40px;
+            margin: 20px;
+        }
+
+        .vertical-nav-names nav .first {
+            width: 100%;
+        }
+
+        .vertical-nav-names nav ul li {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .vertical-nav-names nav ul li a {
+            color: #4d4c4c;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ccc;
+            gap: 30px;
+        }
+
+        .header .search-bar {
+            width: 200px;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .dynamic{
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            font-size: 15px;
+        }
+        .dynamic a{
+            color: white;
+            background-color: orange;
+            padding: 5px 10px;
+        }
+        .dynamic a:hover{
+            background-color: rgb(245, 208, 140);
+        }
+        .content {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+            background-color: rgba(247, 243, 243, 0.5);
+        }
+
+        .content h1, .content p {
+            padding: 10px;
+        }
+
+        #sort {
+            height: 20px;
+        }
+
+        .progress_one #ongoing {
+            background-color: white;
+            padding: 4px;
+            border-radius: 5px;
+        }
+
+        #mar {
+            color: black;
+            margin-left: 900px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: end;
+        }
+
+        #search {
+            width: 20%;
+            position: relative;
+            left: 80%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgb(131, 128, 128);
+        }
+
+        #requests {
+            color: orange;
+        }
+
+        .highlight {
+            background-color: orangered;
+            box-shadow: 0 0 10px 5px rgba(250, 135, 4, 0.9);
+            margin: 20px;
+            color: orange;
+        }
+
+        .fa-solid fa-book {
+            color: orange;
+            margin-right: 10px;
+        }
+
+        .fa-solid fa-xmark {
+            margin-left: 0px;
+        }
+
+        .first {
+            max-width: 300px;
+            height: 1200px;
+            background-color: white;
+            margin: 0px 20px;
+            border: 1px solid rgb(223, 220, 220);
+            padding: 20px;
+            color: rgb(100, 98, 98);
+            font-size: 12px;
+        }
+
+        .first .img {
+            width: 100%;
+            border: 1px solid rgb(223, 220, 220);
+        }
+
+        .first .one {
+            margin: 10px 0px;
+        }
+
+        .first #inspo {
+            color: rgb(16, 243, 54);
+        }
+
+        .first span {
+            color: orange;
+        }
+
+        .beauty {
+            display: flex;
+            gap: 20px;
+        }
+
+        .second {
+            width: 100%;
+            height: 500px;
+            border-left: 1px solid rgb(189, 185, 185);
+            padding: 20px;
+            /* border-right: none;
+            border-top: none;
+            border-bottom: none; */
+        }
+
+        .second .a, .second .b {
+            background-color: white;
+            width: 80%;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        .second .a {
+            border-left: 15px solid orange;
+        }
+
+        .second .b {
+            border-left: 15px solid gray;
+        }
+
+        .side {
+            background-color: red;
+            width: 50px;
+            height: 50px;
+        }
+
+        .a {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .a .ookan {
+            width: 100px;
+        }
+
+        .a .ookan img {
+            width: 50%;
+            margin-left: 30px;
+        }
+
+        .a .eeji {
+            width: 100%;
+            color: rgb(131, 128, 128);
+            font-size: 12px;
+        }
+
+        .a .eeta {
+            width: 100%;
+        }
+
+        .but {
+            width: 100%;
+            height: 40px;
+            background-color: orange;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-size: 15px;
+            margin-top: 25px;
+        }
+
+        #last {
+            margin-top: 5px;
+            color: rgb(131, 128, 128);
+        }
+
+        .spann {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        .out{
+            font-size: 12px;
+        }
+        #btn2{
+            background-color: rgb(202, 201, 201);
+            color: black;
+        }
+        .a:nth-child(2){
+           position: relative;
+           left: 90px;
+        }
+        .out:nth-child(1){
+            margin-left: 90px;
+        }
+        #zz{
+            border-left: 15px solid gray;
+        }
+        @media (min-width: 1024px) {
+            .second .eeji{
+                font-size: 10px;
+                
+                margin-bottom: 10px;
+            }
+            .but {
+            width: 100%;
+            height: 30px;
+            background-color: orange;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        }
+        @media (min-width: 767px) and (max-width: 1024px) {
+            .vertical-nav-names {
+            width: 130px;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .vertical-nav-names nav img {
+            max-width: 80%;
+            height: auto;
+            margin-top: 40px;
+            margin: 20px;
+        }
+        
+        .second .eeji{
+                font-size: 10px;
+               
+                margin-bottom: 10px;
+            }
+            .first {
+            width: 50%;
+        }
+        .second{
+            width: 120%;
+            height: auto;
+            padding-top: 0px;
+            padding-bottom: 30px;
+        }
+       .second .a .ookan{
+        font-size: 10px;
+       }
+       .eeta{
+        width: 100%;
+       }
+       .but {
+            width: 100%;
+            height: 40px;
+            background-color: orange;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        }
+       
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+           
+            .vertical-nav-icons, .vertical-nav-names {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .vertical-nav-icons nav ul, .vertical-nav-names nav ul {
+                display: flex;
+                justify-content: center;
+            }
+
+            .vertical-nav-icons nav ul li, .vertical-nav-names nav ul li {
+                margin: 0 10px;
+            }
+            .vertical-nav-names{
+                justify-content: left;
+                position: relative;
+                top: 20px;
+            }
+            .tab {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .progress {
+                width: 100%;
+            }
+
+            .first {
+                width: 100%;
+                height: auto;
+            }
+
+            .beauty {
+                flex-direction: column;
+            }
+
+            .second {
+                height: auto;
+                
+            }
+
+            .second .a, .second .b {
+                width: 100%;
+                height: auto;
+            }
+
+            .a {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .a .ookan img {
+                width: 100%;
+                margin: 0;
+            }
+            .eeta{
+                width: 100%;
+            }
+            #but {
+                margin-top: 10px;
+                font-size: 12px;
+                width: 100%;
+            }
+            #but:hover{
+                background-color: transparent;
+            }
+            .a:nth-child(2){
+           position: relative;
+           left: 30px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="vertical-nav-icons">
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+                    <li id="date"><a href="#"><i class="fa-regular fa-calendar-days"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-money-bill-1"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-bomb"></i></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <aside class="vertical-nav-names">
+            <nav>
+                <img src="/logo-removebg-preview.png" width="150px">
+                <ul>
+                    <li></i><a href="#">TRM</a></li>
+                    <li><i class="fa-solid fa-chart-simple"></i><a href="dashboard.html">Overview</a></li>
+                    <li><i class="fa-solid fa-file-lines" style="color: #ff9500;"></i><a href="11.html" id="requests">Requests</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <a href="#" id="bell"><i class="fa-regular fa-bell"></i></a>
+                    <a href="#">AG</a>
+                    <select name="drop" id="drop"><i class="fa-solid fa-caret-down"></i>
+                        <option value="sort">Adesola</option>
+                        <option value="saab">Bidemi</option>
+                        <option value="saab">Peter</option>
+                    </select>
+                    <div class="dynamic">
+                        <a href="sixth.two.html"><div class="dyna1">Prev</div></a>
+                        <a href="seven.two.html"><div class="dyna2">Next</div></a>
+                    </div>
+                </div>
+            </header>
+            </header>
+            <section class="content">
+                <h1>Rovenheights Properties</h1>
+
+                <div class="group1">
+                <p>See Inspection across all business classes</p>
+                
+               
+                    
+                        <br><br>
+                      </form>
+                    </div>
+                    <div class="beauty">
+                    <div class="first">
+                        <div class="img">
+                            <img src="/Rectangle 34.jpg" width="100%">
+                        </div>
+                        <h1>Goodness Ibinene</h1>
+                        <h2 id="inspo">Inspection status: <span>Ongoing</span></h2>
+
+                        <div class="details">
+                        <div class="one">
+                            <p>Class Number</p>
+                            <p>NTR35679</p>
+                        </div>
+
+                        <div class="one">
+                            <p>Policy Number</p>
+                            <p>NTR35679</p>
+                        </div>
+
+                        <div class="one">
+                            <p>Commencement Date</p>
+                            <p>31st May, 2022</p>
+                        </div>
+                        
+                        <div class="one">
+                            <p>Sam Assured N</p>
+                            <p>1,000,000</p>
+                        </div>
+
+                        <div class="one">
+                            <p>Premium N</p>
+                            <p>10,000</p>
+                        </div>
+
+                        <div class="one">
+                            <p>Which type</p>
+                            <p>Car</p>
+                        </div>
+
+                        <div class="one">
+                            <p>Policy Term(year)</p>
+                            <p>5</p>
+                        </div>
+
+                        <div class="one">
+                            <p>Expiry Date</p>
+                            <p>19th Dec, 2024</p>
+                        </div>
+
+                    </div>
+
+                    </div>
+                    <div class="second">
+                        <p class="out">25th Jan, 2020  9:39am</p>
+                        
+                        <div class="a">
+                            <!-- <span class="spann"></span> -->
+                            <div class="ookan">
+                            <img src="/file2.png">
+                        </div>
+
+                            <div class="eeji">
+                            <h3>You created request for Post</h3>
+                            <p>Leadway Assurance</p>
+                            <p id="last">Document Review</p>
+                        </div>
+                        <div class="eeta">
+                            <button type="button" class="but"><a href="seven.two.html"> View Request</a></button>
+                        </div>
+                        </div>
+
+
+
+                        <p class="out">24th Jan, 2020  5:00pm</p>
+                        <!-- <div class="b"> -->
+                            <div class="a" id="zz">
+                                <!-- <span class="spann"></span> -->
+                                <div class="ookan">
+                                <img src="/file2.png">
+                            </div>
+    
+                                <div class="eeji">
+                                <h3>Request Assigned</h3>
+                                <p>Leadway Assurance</p>
+                                <p id="last">Assigned to Enginner Oluwaseyi</p>
+                            </div>
+                            <div class="eeta">
+                                <button type="button" class="but" id="btn2">Re-assign</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+           
+
+            </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

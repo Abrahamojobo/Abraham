@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwriter Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding-top: 60px;
+        }
+        #plain {
+            background-color: rgb(252, 250, 246);
+            padding: 20px;
+            height: calc(90vh - 40px); /* Adjust to leave space for .mgt */
+            display: flex;
+            flex-direction: column;
+            padding-left: 70px;
+            justify-content: space-between;
+            position: relative; /* Ensure relative positioning for absolute child */
+        }
+        h1{
+            padding-bottom: 45px;
+        }
+        #plain p{
+            position: relative;
+            bottom: 80px;
+            color: #b4b4b4;
+            font-size: 14px;
+        }
+
+        #content {
+            background: url(/Mask\ Group.png) center/cover no-repeat;
+            padding: 20px;
+            height: calc(90vh - 40px); /* Adjust to leave space for .mgt */
+            position: relative; /* Ensure relative positioning for absolute child */
+        }
+        .login-form {
+            margin-bottom: 120px;
+            width: 85%;
+            position: relative;
+            bottom: 100px;
+        }
+        .login-form label {
+            font-size: 12px;
+            font-weight: bold;
+            position: relative;
+            top: 22px;
+            left: 12px;
+            color: rgb(99, 99, 99);
+        }
+        .login-form input {
+            width: 96%;
+            padding: 23px;
+            margin-bottom: 10px;
+            border: 1px solid #cccccc36;
+            border-radius: 4px;
+            box-sizing: border-box;
+            
+        }
+        .login-form button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: rgba(248, 150, 3, 0.963);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-form button:hover{
+            background-color:rgba(255, 166, 0, 0.741);
+        }
+        .login-form button a{
+            text-decoration: none;
+            color: white;
+        }
+        #user,#lock{
+            position: relative;
+            right: 19px;
+            top: 15px;
+        }
+        #show{
+            text-decoration: none;
+            position: relative;
+            left: 310px;
+            color: red;
+}
+        .reset-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .reset-links a {
+            font-size: 11px;
+            color: rgba(128, 128, 128, 0.753);
+            text-decoration: none;
+            margin: 15px;
+            margin-bottom: 30px;
+        }
+        #keep-logged:hover{
+            color: black;
+        }
+         #reset-password:hover{
+            color: black;
+        }
+
+        .help-link:hover{
+            color: red;
+        }
+        .mgt {
+            padding: 15px;
+            background-color: white;
+            border-left: 10px solid rgb(233, 231, 231);
+            border-radius: 5px;
+            height: 50px;
+            position: absolute;
+            bottom: 50px;
+            left: 20px; /* Adjust as necessary */
+            right: 20px; /* Adjust as necessary */
+            align-items: center;
+            color: black;
+        }
+        .mgt h6 {
+            font-size: 13px;
+            color: rgb(86, 85, 85);
+            margin-left:120px ;
+            position: relative;
+            bottom: 100px;
+        }
+        .mgt p {
+            font-size: 14px;
+            color: grey;
+            margin-left: 110px;
+            position: relative;
+            bottom: 120px;
+        }
+        .help-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 13px;
+            color: rgb(253, 252, 252);
+            text-decoration: none;
+        }
+        .form-control.succes input{
+            border-color:green;
+        }
+        .form-control.error input{
+            border-color:red;
+        }
+        .form-control.error small{
+            color: red;
+            visibility: visible;
+        }
+        small{
+            position:absolute;
+            left: 0;
+            /* color: red; */
+            visibility: hidden;
+        }
+        .wrap{
+            display: flex;
+            justify-content: space-between;
+        }
+        .dyna2{
+            background-color: orange;
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: white;
+        }
+        .dynamic a{
+            color: black;
+            text-decoration:none;
+        }
+        .dyna2 a:hover{
+            background-color: rgb(245, 208, 140);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 540px){
+            #user,#lock{
+                display: none;
+               
+            }
+
+            }
+
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .mgt {
+                width: calc(100% - 40px);
+                left: 10px; /* Adjust as necessary */
+                right: 10px; /* Adjust as necessary */
+            }
+            #show{
+                display: block;
+            }
+            }
+
+
+        @media (max-width: 885px){
+            #user,#lock{
+                display: block;
+            }}
+
+
+        @media (max-width: 1025px)
+        
+        {#user,#lock{display: block;
+            
+        }}
+
+
+        @media (max-width: 1234px)
+        
+        {#show{display: none;
+            
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="plain">
+            <div class="wrap">
+            <img src="/logo-removebg-preview.png" width="170" height="60" alt="logo of leadway assurance limited">
+
+            <!-- <div class="dynamic">
+                <a href="secondtwo.html"><div class="dyna2">Next</div></a>
+            </div> -->
+        </div>
+
+            <h1>Underwriter Dashboard</h1>
+            <p>Welcome. Login to your portal account.</p>
+            <form class="login-form" id="login-form">
+                
+                <div class="form-control">
+                <label for="username">Login ID</label><br>
+                <input type="text" id="username" required minlength="8" maxlength="10" pattern="[a-zA-Z0-9_]{3,20}" placeholder="Enter your login ID"><i class="fa-regular fa-user" id="user"></i><br>
+                <small>Error message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="password">Password<a href="#" id="show">show</a></label><br>
+                <input type="password" id="password" required minlength="6" maxlength="10" placeholder="Enter your password"><i class="fa-solid fa-lock" id="lock"></i><br>
+                <small>Error message</small>
+            </div>
+
+                <div class="reset-links">
+                    <a href="#" id="keep-logged">Keep me logged in</a>
+                    <a href="#" id="reset-password">Reset Password</a>
+                </div>
+                <link rel="stylesheet" href="secondtwo.html"><button type="submit"> <a href="secondtwo.html">Login</a></button>
+            </form>
+        </div>
+    
+    <div id="content">
+            <a href="#" class="help-link">@ Help</a>
+            <div class="mgt">
+                <img src="/_Group_.png" id="mini" alt="people" width="60px">
+                <h6>Customer Management</h6>
+                <p>Manage all customers from individual to corporate or group customers.</p>
+            </div>
+        </div>
+    </div>
+    <script src="under.js"></script>
+</body>
+</html>
+

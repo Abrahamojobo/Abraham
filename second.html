@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ongoing</title>
+    <script src="https://kit.fontawesome.com/de9b151752.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .vertical-nav-icons {
+            width: 60px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+        }
+
+        .vertical-nav-icons nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 120px;
+        }
+
+        .vertical-nav-icons nav ul li {
+            text-align: center;
+            margin: 20px 0;
+            
+        }
+
+        .vertical-nav-icons nav ul li a {
+            color: #f06a11;
+            text-decoration: none;
+            font-size: 24px;
+            
+        }
+        .vertical-nav-icons nav ul li a:hover{
+            color: gray;
+        }
+        #date{
+            background-color: white;
+            padding: 10px;
+        }
+
+        .vertical-nav-names {
+            width: 150px;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+       
+        /* #navbar{
+            visibility: hidden;
+        } */
+        .vertical-nav-names nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 150px;
+        }
+
+        .vertical-nav-names nav ul li {
+            text-align: left;
+            margin: 20px 0;
+            padding-left: 20px;
+            
+        }
+
+        .vertical-nav-names nav ul li a {
+            color: #4d4c4c;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .vertical-nav-names nav ul li a:hover{
+            color: rgb(36, 35, 35);
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
+            justify-content:flex-end;
+            align-items: flex-end;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-bottom: 1px solid #ccc;
+        }
+        .header:hover{
+            border: rgb(230, 224, 224);
+        }
+        .header .search-bar {
+            width: 200px;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .dynamic{
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            font-size: 15px;
+        }
+        .dynamic a{
+            color: white;
+            background-color: orange;
+            padding: 5px 10px;
+        }
+        .dynamic a:hover{
+            background-color: rgb(245, 208, 140);
+        }
+        .content {
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+            background-color: rgba(247, 243, 243, 0.5);
+        }
+        .content h1, .content p{
+            padding: 10px;
+        }
+        .tab{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid rgb(204, 202, 202);
+            
+           margin-top: 20px;
+        }
+
+        .responsive-table th, .responsive-table td {
+            border: none;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(184, 182, 182, 0.5);
+            
+        }
+
+        .responsive-table th {
+            background-color: white;
+        }
+        /* .progress_two{
+            float: right;
+            display: flex;
+            gap: 20px;
+            padding: 5px 10px;
+            
+        } */
+       
+        #sort{
+            height: 20px;
+        }
+        .progress_one{
+            /* display: flex; */
+            margin-top: 50px;
+            background-color: rgb(197, 196, 196);
+            width:20%;
+            height: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+        }
+        .progress_one a{
+            color: black;
+            margin: 7px;
+            cursor: pointer;
+        }
+        .progress_one a:hover{
+            color: white;
+        }
+        .progress_one a:active{
+            background-color: white;
+            color: black;
+            padding: 5px;
+        }
+        .progress_one #ongoing{
+            background-color: white;
+            padding: 4px;
+            border-radius: 5px;
+        }
+        .progress_one #ongoing:hover{
+            color: black;
+        }
+        #mar{
+            color: black;
+           margin-left: 400px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: end;
+            
+        }
+        #search{
+            width: 20%;
+            position: relative;
+            left: 80%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgb(131, 128, 128);
+        }
+        #search:hover{
+            border: 1px solid rgb(36, 35, 35);
+        }
+        #requests{
+            color: orange;
+        }
+        .highlight{
+           background-color:rgba(247, 199, 111, 0.596);
+           box-shadow: 0 0 10px 5px rgba(250, 135, 4, 0.9);
+            margin: 20px;
+            color: orangered;
+            padding: 2px;
+        }
+        .fa-solid fa-magnifying-glass{
+            position: relative;
+            right: 20px;
+        }
+       
+       .fa-solid fa-xmark{
+        margin-left: 0px;
+       }
+       #marine{
+            color: black;
+            background-color: rgb(197, 196, 196);
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        #marine:hover{
+            background-color: gray;
+        }
+       .group1{
+        display: flex;
+        width: 900px;
+        gap: 10px;
+       }
+       .group1 #search{
+       position: relative;
+       left: 45%;
+       }
+       #search{
+       position: relative;
+       left: 45%;
+       height: 30px;
+       }
+        .one{
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+            padding: 5px 5px;
+        }
+        .one a{
+            color: orange;
+            font-size: 10px;
+            
+        }
+        .tab{
+            background-color: white;
+            width: 100%;
+            height: 500px;
+        }
+        #dropdown{
+            padding: 5px 10px;
+            border: 1px solid rgb(185, 180, 180);
+            border-radius: 10px;
+        }
+        #dropdown:hover{
+            border: 1px solid gray;
+        }
+        @media screen and (min-width: 1024px){
+            .pregress{
+                width: 100%;
+            }
+            .progress_one{
+                width: 35%;
+            }
+            .group1 #search{
+            position: absolute;
+            left: 80%;
+            }
+            #mar{
+            position: absolute;
+            left: 45%;
+            }
+            } 
+            
+        @media screen and (min-width:767px) and (max-width: 1024px){
+           .pregress{
+                width: 100%;
+            }
+            .progress_one{
+                width: 35%;
+            }
+            .group1 #search{
+            position: relative;
+            left: 45%;
+            }
+            #mar{
+            position: relative;
+            left: 160%;
+            }
+            } 
+            
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .vertical-nav-icons, .vertical-nav-names {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .vertical-nav-icons nav ul, .vertical-nav-names nav ul {
+                display: flex;
+                justify-content: center;
+            }
+
+            .vertical-nav-icons nav ul li, .vertical-nav-names nav ul li {
+                margin: 0 10px;
+            }
+            .tab{
+            width: 100%;
+        }
+        .header{
+            justify-content: flex-end;
+        }
+        .responsive-table{
+            width: 100%;
+            margin-top: 20px;
+            font-size: 8px;
+        }
+        h1, p{
+            font-size: 15px;
+        }
+            .container {
+                flex-direction: column;
+            }
+            .pregress{
+                width: 100%;
+            }
+            .progress_one{
+                width:60%;
+                font-size: 10px;
+                height: 20px;
+            }
+            .group1 #search{
+            position: absolute;
+            left: 80%;
+            }
+            #mar{
+            position: relative;
+            left: -170px;
+            bottom: 45px;
+            width: 20%;
+            display: block;
+            gap: 80px;
+            }
+            @media (max-width: 350px){
+                .responsive-table{
+                    position: relative;
+                    left: 0px;
+                    right: 50px;
+                    font-size: 5px;
+                }
+            }   
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="vertical-nav-icons">
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+                    <li id="date"><a href="#"><i class="fa-regular fa-calendar-days"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-money-bill-1"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-bomb"></i></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <aside class="vertical-nav-names" >
+            <nav >
+                <ul id="navbar">
+                    <li></i><a href="#">TRM</a></li>
+                    <li><i class="fa-solid fa-chart-simple"></i><a href="dashboard.html">Overview</a></li>
+                    <li><i class="fa-solid fa-file-lines" style="color: #ff9500;"></i><a href="11.html" id="requests">Requests</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <a href="#" id="bell"><i class="fa-regular fa-bell"></i></a>
+                    <span class="one"><a href="#">AG</a></span>
+                    <select name="drop" id="drop"><i class="fa-solid fa-caret-down"></i>
+                        <option value="sort">Adesola</option>
+                        <option value="saab">Bidemi</option>
+                        <option value="saab">Peter</option>
+                    </select>
+                    <div class="dynamic">
+                        <a href="secondtwo.html"><div class="dyna1">Prev</div></a>
+                        <a href="11.html"><div class="dyna2">Next</div></a>
+                    </div>
+                </div>
+            </header>
+            </header>
+            <section class="content">
+                <h1>Inspection list</h1>
+
+                <div class="group1">
+                <p>See Inspection across all business classes</p>
+                <input id="search" type="text" placeholder="Search...">
+            </div>
+            <div class="progress">
+                <div class="progress_one">
+                    <a href="11.html">All requests</a>
+                    <a id="ongoing" href="second.html">Ongoing</a>
+                    <a href="12.html">Completed</a>
+                <!-- </div>
+                <div class="progress_two"> -->
+                    <div id="mar">
+                        <div class="marine"> <a href="#" id="marine">Marine</a></div>
+                    <i class="fa-solid fa-xmark"></i>
+               
+                    <form name="dropdown">
+                        <select name="sort by:" id="dropdown"><i class="fa-solid fa-caret-down"></i>
+                          <option value="sort">Sort by: class</option>
+                          <option value="saab">Saab</option>
+                          <option value="fiat">Fiat</option>
+                          <option value="audi">Audi</option>
+                        </select>
+                        <br><br>
+                      </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <span class="two"></span><th>ID</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Inspection method</th>
+                            <th>Officer</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10321</td>
+                            <td>15/06/2023</td>
+                            <td>Rovenheights properties</td>
+                            <td>Digital</td>
+                            <td>Mustapha Onasanya</td>
+                            <td><a href="#" class="highlight">ongoing</a></td>
+                        </tr>
+                        <tr>
+                            <td>10321</td>
+                            <td>D12/06/2023</td>
+                            <td>Shoprite stores</td>
+                            <td>Manual</td>
+                            <td>Mustapha Onasanya</td>
+                            <td><a href="#" class="highlight">ongoing</a></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        let date = document.getElementById("date");
+        let nav = document.getElementById("navbar");
+
+        date.addEventListener("click", function(e){
+            e.preventDefault();
+            toggle();
+        });
+        function toggle(){
+            if (nav.style.visibility === "hidden"){
+                nav.style.visibility === "visible";
+            }else{
+                nav.style.visibility === "hidden";
+            }
+        };
+        </script>
+</body>
+</html>

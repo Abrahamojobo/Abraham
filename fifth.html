@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Inspection3</title>
+        <script src="https://kit.fontawesome.com/de9b151752.js" crossorigin="anonymous"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+                text-decoration: none;
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+            }
+    
+            .container {
+                display: flex;
+                height: 100vh;
+            }
+    
+            .vertical-nav-icons {
+                width: 60px;
+                background-color: #333;
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+            }
+    
+            .vertical-nav-icons nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 120px;
+            }
+    
+            .vertical-nav-icons nav ul li {
+                text-align: center;
+                margin: 20px 0;
+                
+            }
+    
+            .vertical-nav-icons nav ul li a {
+                color: #f06a11;
+                text-decoration: none;
+                font-size: 24px;
+                margin: 10px;
+            }
+            #date{
+                background-color: white;
+                padding: 10px;
+            }
+    
+            .vertical-nav-names {
+                width: 150px;
+                background-color: #ffffff;
+                color: black;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+    
+            .vertical-nav-names nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 150px;
+            }
+    
+            .vertical-nav-names nav ul li {
+                text-align: left;
+                margin: 20px 0;
+                padding-left: 20px;
+                
+            }
+    
+            .vertical-nav-names nav ul li a {
+                color: #4d4c4c;
+                text-decoration: none;
+                font-size: 16px;
+                margin: 10px;
+            }
+    
+            .main-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .header {
+                display: flex;
+                flex-direction: column;
+                justify-content:flex-end;
+                align-items: flex-end;
+                padding: 10px;
+                background-color: #f4f4f4;
+                border-bottom: 1px solid #ccc;
+            }
+    
+            .header .search-bar {
+                width: 200px;
+            }
+    
+            .header .search-bar input {
+                width: 100%;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            .header:hover{
+                border: rgb(230, 224, 224);
+            }
+            .dynamic{
+            display: flex;
+            gap: 30px;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            font-size: 15px;
+        }
+        .dynamic a{
+            color: white;
+            background-color: orange;
+            padding: 5px 10px;
+        }
+        .dynamic a:hover{
+            background-color: rgb(245, 208, 140);
+        }
+            .content {
+                padding: 20px;
+                flex: 1;
+                overflow-y: auto;
+                background-color: rgba(247, 243, 243, 0.5);
+            }
+            .content h1, .content p{
+                padding: 10px;
+            }
+            .responsive-table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid black;
+                border-radius: 10px;
+               
+            }
+    
+            .responsive-table th, .responsive-table td {
+                border: none;
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid rgba(99, 96, 96, 0.5);
+                border-radius: 5px;
+            }
+    
+            .responsive-table th {
+                background-color: white;
+            }
+            .progress_two{
+                float: right;
+                display: flex;
+                gap: 20px;
+                padding: 5px 10px;
+                
+            }
+            .progress_two:hover{
+                background-color: orange;
+            }
+            #marine{
+                color: black;
+                background-color: rgb(197, 196, 196);
+                height: 40px;
+                border-radius: 10px;
+            }
+            #sort{
+                height: 20px;
+            }
+            .progress_one{
+                margin-top: 10px;
+                background-color: rgb(197, 196, 196);
+                width: 20%;
+                height: 30px;
+                padding: 5px;
+                border-radius: 5px;
+                color: black;
+            }
+            .progress_one a{
+                color: black;
+                margin: 7px
+            }
+            .progress_one a:active{
+                background-color: white;
+                padding: 5px;
+            }
+            .progress_one #ongoing{
+                background-color: white;
+                padding: 4px;
+                border-radius: 5px;
+            }
+            
+            #search{
+                width: 20%;
+                position: relative;
+                left: 80%;
+                padding: 10px;
+            }
+            #requests{
+                color: orange;
+            }
+            .highlight{
+               /* background-color: orangered;
+               opacity: 40%; */
+               box-shadow: 0 0 10px 5px rgba(250, 135, 4, 0.9);
+                margin: 20px;
+                color: orange;
+            }
+            #book{
+            color: orange;
+            background-color: orange;
+            margin-right: 10px;
+           }
+           .inside{
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            height: 390px;
+            margin-top: 20px;
+            margin: auto;
+            margin-bottom:0px;
+           }
+           #one, #two{
+            width: 100%;
+            background-color: white;
+            height: 290px;
+            padding: 10px;
+            gap: 40px;
+            border: 1px solid rgb(252, 247, 247);
+           
+           }
+           .main{
+            width: 50%;
+            position: relative;
+            left:25%;
+            margin-top: 30px;
+           }
+           img{
+            width: 90%;
+            margin-left: 40px;
+            margin-top: 20px;
+           }
+           
+           #property{
+            margin-top: 30px;
+            width: 90%;
+            height: 30px;
+            border: 1px solid  rgb(199, 197, 197);
+            margin-top: 0px;
+           }
+           #property:hover{
+            border: 1px solid grey;
+           }
+           .repository{
+            text-align: center;
+            width: 40%;
+            /* margin-left: 120px;
+            margin-top: 30px; */
+            color: white;
+            background-color: orange;
+            border: none;
+            margin: auto;
+            margin-top: 5px;
+            padding:10px 60px;
+           }
+         
+           .repository:hover{
+                background-color: rgb(230, 184, 99);
+            }
+           /* button:hover{
+            background-color: orange;
+            padding: 10px 20px;
+           } */
+           
+           .loss{
+            margin-left: 25px;
+           }
+           #choose{
+            color:  rgb(131, 128, 128);
+            margin-bottom: 0px;
+            margin-top: 0px;
+            font-size: 12px;
+           }
+           .inside #two{
+                border: 1px solid rgb(243, 194, 104);
+                /* border-right: none; */
+            }
+            .inside #one:active, .inside #two:active{
+                border: 1px solid rgb(243, 194, 104);
+                border-right: none;
+            }
+            .inside #one:hover, .inside #two:hover{
+                border: 1px solid rgb(194, 191, 191);
+            }
+
+
+           @media (min-width:1023px){
+            .repository{
+                width: 70%;
+               height: 30px;
+               font-size: 12px;
+               background-color: orange;
+            }
+            .repository:hover{
+                background-color: rgb(230, 184, 99);
+            }
+            img{
+                position: relative;
+                right: 20px;
+            }
+            .inside{
+                font-size: 11px;
+            }
+            .inside #two{
+                border: 1px solid rgb(243, 194, 104);
+                /* border-right: none; */
+            }
+            .inside #one:active, .inside #two:active{
+                border: 1px solid rgb(243, 194, 104);
+                border-right: none;
+            }
+            .inside #one:hover, .inside #two:hover{
+                border: 1px solid rgb(194, 191, 191);
+            }
+           }
+           
+           @media (min-width: 769px) and (max-width:1023px){
+            .repository{
+                width: 80%;
+                margin: auto;
+                /* margin-left: 20px; */
+                font-size: 12px;
+            }
+            img{
+            width: 50%;
+            margin-left: 30px;
+           }
+           .inside{
+                font-size: 11px;
+            }
+            .inside #two{
+                border: 1px solid rgb(243, 194, 104);
+                /* border-right: none; */
+            }
+            .inside #one:active, .inside #two:active{
+                border: 1px solid rgb(243, 194, 104);
+                border-right: none;
+            }
+            .inside #one:hover, .inside #two:hover{
+                border: 1px solid rgb(194, 191, 191);
+            }
+           }
+
+
+            @media (max-width: 768px) {
+                .header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+    
+                .header .search-bar {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+    
+                .vertical-nav-icons, .vertical-nav-names {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    
+                }
+    
+                .vertical-nav-icons nav ul, .vertical-nav-names nav ul {
+                    display: flex;
+                    justify-content: center;
+                }
+    
+                .vertical-nav-icons nav ul li, .vertical-nav-names nav ul li {
+                    margin: 0 10px;
+                }
+                .content h1{
+                    font-size: 15px;
+                    margin-bottom: 0;
+                }
+                .content p{
+                    font-size: 10px;
+                    margin-top: 0;
+                }
+                .container {
+                    flex-direction: column;
+                }
+                .repository{
+                    width: 100%;
+                    font-size: 7px;
+                }
+                img{
+                    position: relative;
+                    right: 30px;
+                }
+                #loss{
+                    margin-right: 5px;
+                }
+                .inside{
+                font-size: 11px;
+            }
+            .inside #two{
+                border: 1px solid rgb(243, 194, 104);
+                /* border-right: none; */
+            }
+            .inside #one:active, .inside #two:active{
+                border: 1px solid rgb(243, 194, 104);
+                border-right: none;
+            }
+            .inside #one:hover, .inside #two:hover{
+                border: 1px solid rgb(194, 191, 191);
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <aside class="vertical-nav-icons">
+                <nav>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+                        <li id="date"><a href="#"><i class="fa-regular fa-calendar-days"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-money-bill-1"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-gear"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-bomb"></i></a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <aside class="vertical-nav-names">
+                <nav>
+                    <ul>
+                        <li></i><a href="#">TRM</a></li>
+                        <li><i class="fa-solid fa-chart-simple"></i><a href="dashboard.html">Overview</a></li>
+                        <li><i class="fa-solid fa-file-lines" style="color: #ff9500;"></i><a href="11.html" id="requests">Requests</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <header class="header">
+                   
+                    <div class="search-bar">
+                        <a href="#" id="bell"><i class="fa-regular fa-bell"></i></a>
+                        <select name="drop" id="drop"><i class="fa-solid fa-caret-down"></i>
+                            <option value="sort">Adesola</option>
+                            <option value="saab">Bidemi</option>
+                            <option value="saab">Peter</option>
+                        </select>
+                        <div class="dynamic">
+                            <a href="fouth.html"><div class="dyna1">Prev</div></a>
+                            <a href="sixth.html"><div class="dyna2">Next</div></a>
+                        </div>
+                    </div>
+                </header>
+                <section class="content">
+                    <h1>Create new inspection</h1>
+                    <p>See Inspection across all business classes</p>
+                   
+                    <div class="progress_two">
+                        <a href="second.html"> <i class="fa-solid fa-xmark" id="close"></i>Close</a>
+                        
+                          
+                    </div>
+                    <div class="main">
+                    <div class="inside">
+                        <div id="one">
+                            <a href="fouth.html"><img src="/Insteadone.png" width="50px"><p class="loss">Pre-lost Inspection</p></a>
+                        </div>
+    
+                        <div id="two">
+                            <a href="/fifth.html"><img src="/insteadtwo.png" width="50px"><p class="loss">Post-lost Inspection</p></a>
+                    </div>
+                    </div>
+                    <div class="drop">
+                    <p id="choose">Choose a class</p>
+                    <form name="dropdown">
+                        <select name="property" id="property" onchange="navigateToPage()">
+                            <i class="fa-solid fa-caret-down"></i>
+                            <option value="" disabled selected hidden>
+                                <span style="font-size: 12px; margin-right: 2px;">🔴</span>Property
+                            </option>
+                            <option value="third.html">
+                                <span style="font-size: 12px; margin-right: 2px;">🔴</span>Property
+                            </option>
+                            <option value="sixth.html">
+                                <span style="font-size: 12px; margin-right: 2px;">🟠</span>Motors
+                            </option>
+                            <option value="fiat.html">
+                                <span style="font-size: 12px; margin-right: 2px;">🟡</span>Fiat
+                            </option>
+                            <option value="audi.html">
+                                <span style="font-size: 12px; margin-right: 2px;">🟢</span>Audi
+                            </option>
+                            <option value="funbi.html">
+                                <span style="font-size: 12px; margin-right: 2px;">🔵</span>Funbi
+                            </option>
+                        </select>
+                        <br><br>
+                    </form>
+                    <script>
+                        function navigateToPage() {
+                            var select = document.getElementById("property");
+                            var selectedValue = select.options[select.selectedIndex].value;
+                            if (selectedValue) {
+                                window.location.href = selectedValue;
+                            }
+                        }
+                        </script>
+                    <div class="repository"><i class="fa-solid fa-circle-arrow-right"></i><a href="14.html"> Create Repository</a></div>
+                    
+                    <!-- <button type="button">Create Repository</button> -->
+                </div>
+                </div>
+                </div>
+                
+                    
+                </section>
+            </main>
+        </div>
+    </body>
+    </html>
+   
+</head>
+<body>
+    
+</body>
+</html>

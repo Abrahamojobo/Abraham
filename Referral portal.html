@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referal portal</title>
+    <script src="https://kit.fontawesome.com/de9b151752.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(235, 228, 228);
+        }
+        main{
+            width: 600px;
+            height: 600px;
+            padding: 40px 60px;
+            position: relative;
+            top: 80px;
+            background-color: white;
+            border-radius: 5px;
+            border-top: 25px solid  rgb(255, 136, 0);
+        }
+        form h1{
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 0px;
+            color:  rgba(65, 64, 64, .9);
+        }
+        form p{
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 50px;
+            color:  rgba(65, 64, 64, .3);
+        }
+        form label, form input{
+            position: relative;
+            left: 12%;
+            margin-top: 30px;
+        }
+        form label{
+            color:  rgb(170, 168, 168); 
+            font-size: 15px;
+            /* margin-top: 80px; */
+            margin-bottom: 20px;
+        }
+        form input{
+            background-color:rgb(235, 228, 228);
+            width: 450px;
+            height: 50px;
+            align-items: center;
+            border: none;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .q{
+            display: flex;
+            flex-direction: row;
+            gap: 80px;
+            font-size: 12px;
+            color: rgb(170, 168, 168);
+        }
+        #check{
+            width: 15px;
+            height: 15px;
+            margin-top: 0px;
+            margin-left: 15px;
+            font-size: 15px;
+            background-color: none;
+        }
+        input[type="checkbox"].checked{
+            background-color:rgb(255, 136, 0);
+            border: 1px solid rgb(255, 136, 0);
+        }
+        #reset{
+            margin-left: 130px;
+            text-decoration: none;
+            color: rgb(170, 168, 168);
+        }
+        #btn{
+            background-color: rgb(255, 136, 0);
+            border: none;
+            color: white;
+            font-size: 20px;
+            width: 460px;
+            height: 65px;
+            margin-left: 70px;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+    <form>
+        <h1>Referral Portal</h1>
+        <p>Welcome, Login to your portal account</p>
+        <label for="username" id="username">USERNAME</label><br>
+        <input type="text" id="username"><i class="fa-regular fa-user"></i><br>
+
+        <label for="password" id="password">PASSWORD</label><br>
+        <input type="password" id="password"><i class="fa-solid fa-lock"></i><br>
+
+        <div class="q">
+        <input type="checkbox" id="check" onclick="ticked()">Keep me logged in<br>
+        <a href="#" id="reset">Reset password</a>
+        </div>
+
+        <button id="btn" type="button">Login</button>
+    </form>
+</main>
+
+<script>
+    document.getElementById("check").addEventListener("change", function(){
+        if (this.checked){
+            console.log("Checkbox is clicked");
+        }else{
+            console.log("Checkbox is unclicked");
+        }
+    });
+</script>
+</body>
+</html>
